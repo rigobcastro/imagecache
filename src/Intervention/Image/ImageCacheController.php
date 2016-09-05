@@ -153,7 +153,8 @@ class ImageCacheController extends BaseController
         return new IlluminateResponse($content, 200, array(
             'Content-Type' => $mime,
             'Cache-Control' => 'max-age='.(config('imagecache.lifetime')*60).', public',
-            'Etag' => md5($content)
+            'Etag' => md5($content),
+            'Access-Control-Allow-Origin' => '*'
         ));
     }
 }
